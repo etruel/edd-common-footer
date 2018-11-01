@@ -35,7 +35,9 @@ You can either install it automatically from the WordPress admin, or do it manua
 2. Activate the plugin through the 'Plugins' menu in WordPress
 
 == Screenshots ==
+1. Settings screen.
 
+1. Download edit screen.
 
 == Changelog ==
 
