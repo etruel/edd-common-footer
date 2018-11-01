@@ -1,8 +1,8 @@
 <?php
 /**
  * Plugin Name: EDD Common Footer
- * Plugin URI: http://www.netmdp.com
- * Description: Add a Send email quick action to all pending payments to easily remember the user about his pending order with an email template.
+ * Plugin URI: https://github.com/etruel/edd-common-footer
+ * Description: Adds a common footer to all or to selected downloads products on frontend.
  * Version: 1.0
  * Author: etruel
  * Author URI: https://etruel.com
@@ -11,17 +11,10 @@
  * Domain Path: /lang/
  *
  *
- * @package         etruel\edd_common_footer Stats
+ * @package         etruel\edd_common_footer 
  * @author          Esteban Truelsegaard
- * @copyright       Copyright (c) 2016
+ * @copyright       Copyright (c) 2018
  *
- *
- * - Find all instances of @todo in the plugin and update the relevant
- *   areas as necessary.
- *
- * - All functions that are not class methods MUST be prefixed with the
- *   plugin name, replacing spaces with underscores. NOT PREFIXING YOUR
- *   FUNCTIONS CAN CAUSE PLUGIN CONFLICTS!
  */
 
 
@@ -128,9 +121,28 @@ if( !class_exists( 'edd_common_footer' ) ) {
 			// metabox
 			add_action( 'edd_meta_box_settings_fields', array( $this, 'add_metabox' ) );
 			add_action( 'edd_metabox_fields_save', array( $this, 'save_metabox' ) );
+			
+			// Settings link
+			add_filter(	'plugin_action_links_' . plugin_basename( __FILE__ ) , array( $this, 'plugin_action_links') );
 
 		}
-		
+
+		/**
+		* Actions-Links del Plugin
+		*
+		* @param   array   $data  Original Links
+		* @return  array   $data  modified Links
+		*/
+		function plugin_action_links($data)	{
+			if ( !current_user_can('manage_options') ) {
+				return $data;
+			}
+			return array_merge(	
+				array(
+					'<a href="edit.php?post_type=download&page=edd-settings&tab=extensions&section=edd-common-footer-settings" title="' . __('Go to Settings Page', 'edd-common-footer' ) . '">' . __('Settings', 'edd-common-footer' ) . '</a>',
+				), $data
+			);
+		}		
 		/**
          * Internationalization
          *
