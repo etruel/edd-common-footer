@@ -14,7 +14,6 @@ EDD Common Footer ADD-on. Requires Easy Digital Downloads Plugin.
 
 Adds a footer to all downloads products on frontend to easily add privacy or sell policies, and so on.
 
-
 == Installation ==
 
 You can either install it automatically from the WordPress admin, or do it manually:
@@ -34,9 +33,7 @@ You can either install it automatically from the WordPress admin, or do it manua
 1. Upload `edd-common-footer` folder to the `/wp-content/plugins/` directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
 
-
 == Screenshots ==
-
 
 
 == Changelog ==
