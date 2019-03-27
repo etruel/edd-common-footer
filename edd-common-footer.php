@@ -225,7 +225,7 @@ if( !class_exists( 'edd_common_footer' ) ) {
 
 function edd_common_footer_load() {
      if(!class_exists( 'Easy_Digital_Downloads' ) ) {
-         require_once 'inc/class.extension-activation.php';
+         require_once 'includes/class.extension-activation.php';
          $activation = new edd_common_footer_Extension_Activation( plugin_dir_path( __FILE__ ), basename( __FILE__ ) );
          $activation = $activation->run();
 
